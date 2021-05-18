@@ -5,9 +5,9 @@ public class ShopApp {
         System.out.println("Welcome to Duke Choice Shop!");
 
         Customer c1 = new Customer();
-        c1.name = "Pinky";
-        c1.size = "S";
-        System.out.println("Hi there " + c1.name);
+        c1.setName("Pinky");
+        c1.setSize("S");
+        System.out.println("Hi there " + c1.getName());
 
         double tax = 0.2;
         double total = 0.0;
@@ -17,21 +17,21 @@ public class ShopApp {
 
         Clothing[] items = {item1, item2, new Clothing(), new Clothing()};
 
-        item1.description = "Blue Jacket";
-        item1.price = 20.9;
-        item1.size = "M";
+        item1.setDescription("Blue Jacket");
+        item1.setPrice(20.9);
+        item1.setSize("M");
 
-        item2.description = "Orange T-Shirt";
-        item2.price = 10.5;
-        item2.size = "S";
+        item2.setDescription("Orange T-Shirt");
+        item2.setPrice(10.5);
+        item2.setSize("S");
 
-        items[2].description = "Green Scarf";
-        items[2].price = 5.0;
-        items[2].size = "S";
+        items[2].setDescription("Green Scarf");
+        items[2].setPrice(5.0);
+        items[2].setSize("S");
 
-        items[3].description = "Blue TShirt";
-        items[3].price = 10.5;
-        items[3].size = "S";
+        items[3].setDescription("Blue TShirt");
+        items[3].setPrice(10.5);
+        items[3].setSize("S");
 
 
 //        System.out.println("Item 1" + " " + item1.description + " " + item1.price + " " + item1.size);
@@ -41,43 +41,12 @@ public class ShopApp {
         //total = (item1.price + item2.price + item3.price * 2) * 1 + tax;
 
         int measurement = 3;
+        c1.addItems(items);
+        c1.setSize(measurement);
+        System.out.println("Customer is "+ c1.getName() + "," + c1.getSize() + " " + c1.getTotalClothingCost());
 
-        switch (measurement){
-            case 1:
-            case 2:
-            case 3:
-                c1.size = "S";
-                break;
-            case 4:
-            case 5:
-            case 6:
-                c1.size = "L";
-                break;
-            case 7:
-            case 8:
-            case 9:
-                c1.size = "M";
-                break;
-            default:
-                c1.size = "X";
+        for(Clothing item: c1.getItems()){
+            System.out.println("Items " + item.getDescription());
         }
-
-//        System.out.println(c1.size);
-
-//        for(Clothing item: items){
-//            total += item.price;
-//        }
-//        System.out.println("Total = " + total);
-
-        for(Clothing item: items){
-            if(c1.size.equals(item.size)){
-                total += item.price;
-                System.out.println("Item " + " " + item.description + " " + item.price + " " + item.size);
-                if(total > 15){
-                    break;
-                }
-            }
-        }
-        System.out.println("Total = " + total);
     }
 }
